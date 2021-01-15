@@ -1,5 +1,12 @@
+html {
+    background-color: #141414;
+}
+
 #headerContainer {
-    display: grid;
-    grid-template-columns: 85% 15%;
-    background-color: aqua;
+  display: grid;
+  grid-template-columns: 85% 15%;
+  border: 1px solid black;
+  padding: 20px;
+  color: white;
+  background-color: #222222;
 }
