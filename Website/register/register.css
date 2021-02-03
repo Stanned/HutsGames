@@ -1,5 +1,5 @@
 .registerforminput {
-  margin-top: 4px;
+  margin-top: 10px;
   font-size: 18px;
   width: 300px;
   border-bottom: 4px solid #485FFF;
@@ -32,10 +32,10 @@ input[type='checkbox'] {
 
 }
 .passwordBox{
-  margin-top: 15px;
+  margin-top: 25px;
 }
 .emailBox{
-  margin-top: 15px;
+  margin-top: 25px;
 }
 .registerButton{
   background-color: #FF0000;
