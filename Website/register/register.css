@@ -1,6 +1,8 @@
 .registerforminput {
     margin-top: 10px;
+    border-radius: 5px;
+    font-size: 18px;
   }
-  .registerform {
+  #registerBoxContainer {
     text-align: center;
   }
