@@ -19,14 +19,14 @@
 <body>
     <header>
         <div id="headerContainer">
-            <div class="headerItem"><img width="250" src="../images/logo-big.png" alt="HutsGames Logo"></div>
+            <div class="headerItem"><a href="../index.html"><img width="250" src="../images/logo-big.png" alt="HutsGames Logo"></a></div>
             <div class="headerItem" id="loginButtonContainer" style="text-align: right;">
                 <a id="loginButton" class="button" href="#">Login</a>
                 <a id="loginButton" class="button" href="">Register</a>
             </div>
         </div>
     </header>
-    <h1 class="titleRegister">Account Registration</h1>
+    <h1 class="titleRegister">Sign up</h1>
     <div id="registerBoxContainer">
         <form action="" method="post">
             <input class="registerforminput" autocomplete="off" type="text" placeholder="Username" name="username" id="usernameInput" required><br>
@@ -34,8 +34,8 @@
             <input class="registerforminput passwordBox" autocomplete="off" type="password" placeholder="Password" name="password" id="passwordInput" required><br>
             <input class="registerforminput" autocomplete="off" type="password" placeholder="Confirm password" name="passwordConfirm" id="passwordConfirmInput" required><br>
             <input type="checkbox" id="TermsAcceptBox" name="TermsAcceptCheckbox" required>
-            <label id="TermsAcceptBox" for="TermsAcceptBox"> I agree to the <a href="terms-of-user.html" target="blank_">Terms of User</a></label><br>
-            <input class="registerforminput" type="submit" name="submitRegisterForm" value="Register">
+            <label id="TermsAcceptBox" for="TermsAcceptBox"> I agree to the <a href="../terms-of-service.html" target="blank_">Terms of Service</a></label><br>
+            <input class="registerButton" type="submit" name="submitRegisterForm" value="Register">
         </form>
     </div>
 </body>

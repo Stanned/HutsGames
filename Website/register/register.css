@@ -1,24 +1,64 @@
 .registerforminput {
-    margin-top: 7px;
-    border-radius: 5px;
-    font-size: 18px;
-  }
-  #registerBoxContainer {
-    text-align: center;
-  }
-  .titleRegister {
-    color: white;
-    text-align: center;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-  #TermsAcceptBox{
-    margin-top: 17px;
-    color: white;
-  }
-  .passwordBox{
-    margin-top: 15px;
-  }
-  .emailBox{
-    margin-top: 15px;
-  }
+  margin-top: 4px;
+  font-size: 18px;
+  width: 300px;
+  border-bottom: 4px solid #485FFF;
+  border-left: 0px;
+  border-top: 0px;
+  border-right: 0px;
+  background: #141414;
+  color: white;
+}
+input.registerforminput:focus {
+  outline-width: 0;
+}
+#registerBoxContainer {
+  text-align: center;
+}
+.titleRegister {
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+#TermsAcceptBox{
+  margin-top: 17px;
+  color: white;
+  font-size: 18px;
+}
+input[type='checkbox'] {
+  width:15px;
+  height:15px;
+
+}
+.passwordBox{
+  margin-top: 15px;
+}
+.emailBox{
+  margin-top: 15px;
+}
+.registerButton{
+  background-color: #FF0000;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: none;
+  font-weight: bold;
+  font-size: 19px;
+  width: 300px;
+  color: white;
+  transition-duration: 1s;
+}
+.registerButton:hover{
+  background-color: #485FFF;
+  color: white;
+}
+::placeholder {
+  color: rgb(180, 180, 180);
+  opacity: 1; 
+}
+:-ms-input-placeholder { 
+  color: rgb(180, 180, 180);
+}
+::-ms-input-placeholder { 
+  color: rgb(180, 180, 180);
+}
