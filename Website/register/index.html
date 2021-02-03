@@ -21,13 +21,16 @@
             </div>
         </div>
     </header>
+    <h1 class="titleRegister">Account Registration</h1>
     <div id="registerBoxContainer">
         <form action="" method="post">
             <input class="registerforminput" autocomplete="off" type="text" placeholder="Username" name="username" id="usernameInput"><br>
-            <input class="registerforminput" type="email" placeholder="Email address" name="email" id="emailInput"><br>
-            <input class="registerforminput" autocomplete="off" type="password" placeholder="Choose a password" name="password" id="passwordInput"><br>
+            <input class="registerforminput emailBox" type="email" placeholder="Email address" name="email" id="emailInput"><br>
+            <input class="registerforminput passwordBox" autocomplete="off" type="password" placeholder="Password" name="password" id="passwordInput"><br>
             <input class="registerforminput" autocomplete="off" type="password" placeholder="Confirm password" name="passwordConfirm" id="passwordConfirmInput"><br>
-            <input class="registerforminput" type="" name="submitRegisterForm" value="Register"> <!-- type="submit"-->
+            <input type="checkbox" id="TermsAcceptBox" name="TermsAcceptCheckbox">
+            <label id="TermsAcceptBox" for="TermsAcceptBox"> I agree to the <a href="termsofuser.html" target="blank_">Terms of User</a></label><br>
+            <input class="registerforminput" type="submit" name="submitRegisterForm" value="Register">
         </form>
     </div>
 </body>
