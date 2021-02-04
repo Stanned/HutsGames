@@ -9,6 +9,7 @@
   border-right: 0px;
   background: #141414;
   color: white;
+  transition-duration: 0.7s;
 }
 /*Wanneer er iets in een input staat, wordt de border groen*/
 .inputcompleted{
@@ -18,6 +19,8 @@
 /*Als je in een tekstvakje typt, laat dat niet zo'n lelijke border zien*/
 input.registerforminput:focus {
   outline-width: 0;
+  border-bottom: 4px solid orange;
+  transition-duration: 0.7s;
 }
 /*Alles in de div wordt gecentreerd*/
 #registerBoxContainer {
