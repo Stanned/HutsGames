@@ -1,3 +1,4 @@
+/*Opmaak voor alle inputs*/
 .registerforminput {
   margin-top: 10px;
   font-size: 18px;
@@ -9,34 +10,45 @@
   background: #141414;
   color: white;
 }
+/*Wanneer er iets in een input staat, wordt de border groen*/
+.inputcompleted{
+  border-bottom: 4px solid rgb(8, 207, 1);
+  transition-duration: 0.7s;
+}
+/*Als je in een tekstvakje typt, laat dat niet zo'n lelijke border zien*/
 input.registerforminput:focus {
   outline-width: 0;
 }
+/*Alles in de div wordt gecentreerd*/
 #registerBoxContainer {
   text-align: center;
 }
+/*Sign up titel*/
 .titleRegister {
   color: white;
   text-align: center;
   font-weight: bold;
   margin-bottom: 20px;
 }
+/*Opmaak van tekst naast checkbox*/
 #TermsAcceptBox{
   margin-top: 17px;
   color: white;
   font-size: 18px;
 }
+/*Grootte van de checkbox*/
 input[type='checkbox'] {
-  width:15px;
-  height:15px;
-
+  width: 15px;
+  height: 15px;
 }
+/*Margin boven password en email address*/
 .passwordBox{
   margin-top: 25px;
 }
 .emailBox{
   margin-top: 25px;
 }
+/*Register knop*/
 .registerButton{
   background-color: #FF0000;
   margin-top: 10px;
@@ -46,12 +58,14 @@ input[type='checkbox'] {
   font-size: 19px;
   width: 300px;
   color: white;
-  transition-duration: 1s;
+  transition-duration: 2s;
 }
+/*Wanneer je met je muis over de register knop beweegt, verandert hij van kleur*/
 .registerButton:hover{
   background-color: #485FFF;
   color: white;
 }
+/*Geeft grijze kleur aan de placeholders in alle browsers*/
 ::placeholder {
   color: rgb(180, 180, 180);
   opacity: 1; 
@@ -61,4 +75,17 @@ input[type='checkbox'] {
 }
 ::-ms-input-placeholder { 
   color: rgb(180, 180, 180);
+}
+/*Zorgt ervoor dat als je auto-fill gebruikt de achtergrond van de input niet zo'n lelijke kleur krijgt.*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: white;
+  -webkit-box-shadow: 0 0 0px 1000px #141414 inset;
 }
