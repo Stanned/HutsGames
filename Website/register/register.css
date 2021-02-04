@@ -92,3 +92,14 @@ select:-webkit-autofill:focus {
   -webkit-text-fill-color: white;
   -webkit-box-shadow: 0 0 0px 1000px #141414 inset;
 }
+#CapsLockWarning{
+  color: red;
+  font-weight: bold;
+  font-size: 16px;
+}
+.AlreadyRegistered{
+  color: white;
+  font-size: 16px;
+  margin-top: 15px;
+}
+
