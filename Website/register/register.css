@@ -43,6 +43,8 @@ input.registerforminput:focus {
 input[type='checkbox'] {
   width: 15px;
   height: 15px;
+  width:15px;
+  height:15px;
 }
 /*Margin boven password en email address*/
 .passwordBox{
