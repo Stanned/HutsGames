@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Coda+Caption:wght@800&display=swap");
 :root {
   --background-primary: #fff;
-  --color-primary: #333;
+  --color-primary: #222222;
 }
 
 html[data-theme='dark'] {
@@ -9,7 +9,7 @@ html[data-theme='dark'] {
   --color-primary: #ccc;
 }
 
-html {
+body, html {
   transition: color 300ms, background-color 300ms;
   background: var(--background-primary);
   color: var(--color-primary);
@@ -24,7 +24,7 @@ h1, h2, p {
 
 #headerContainer {
   display: grid;
-  grid-template-columns: 85% 15%;
+  grid-template-columns: 80% 20%;
   border: 1px solid black;
   padding: 20px;
   color: white;
@@ -33,7 +33,7 @@ h1, h2, p {
 
 .button {
   border: 2px solid #141414;
-  padding: 15px;
+  padding: 16px;
   color: white;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;

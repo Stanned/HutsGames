@@ -6,7 +6,7 @@
   border-left: 0px;
   border-top: 0px;
   border-right: 0px;
-  background: #141414;
+  background: #222222;
   color: white;
 }
 input.registerforminput:focus {
@@ -16,14 +16,14 @@ input.registerforminput:focus {
   text-align: center;
 }
 .titleRegister {
-  color: white;
+  color: var(--color-primary);
   text-align: center;
   font-weight: bold;
   margin-bottom: 20px;
 }
 #TermsAcceptBox{
   margin-top: 17px;
-  color: white;
+  color: var(--color-primary);
   font-size: 18px;
 }
 input[type='checkbox'] {
