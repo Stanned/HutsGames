@@ -7,8 +7,8 @@ $database = new Database();
 $conn = $database->getDbConnection();
 
 if ($conn) {
-    #Alle client-side checks worden nog een keer uitgevoerd op de server
-    #Check if username is valid
+    //Alle client-side checks worden nog een keer uitgevoerd op de server
+    //Check if username is valid
     //TODO: Check username for illegal characters / illegal length
     $username = $conn->real_escape_string($_POST['username']);
     $query = mysqli_query($conn, "SELECT * FROM users WHERE username='" . $username . "'");

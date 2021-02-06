@@ -1,5 +1,4 @@
 <?php
-
 class Database{
 
     private string $host = "mysql.stackcp.com";
