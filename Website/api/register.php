@@ -1,17 +1,37 @@
 <?php
-
+// TODO: make script send response in correct format for html page to read, not just plain text.
+// TODO: Put all errors into one error message and send that instead of one error at a time.
 include './database.php';
 
 $database = new Database();
 $conn = $database->getDbConnection();
 
 if ($conn) {
-    if($result = $conn->query("SELECT * FROM users")) {
-        while($row = $result->fetch_assoc()) {
-            echo(json_encode($row));
-        }
+    #Alle client-side checks worden nog een keer uitgevoerd op de server
+    #Check if username is valid
+    //TODO: Check username for illegal characters / illegal length
+    $username = $conn->real_escape_string($_POST['username']);
+    $query = mysqli_query($conn, "SELECT * FROM users WHERE username='" . $username . "'");
+    if (!$query) {
+        die("Error: " . mysqli_error($conn));
     }
-    echo("<br>Success");
+    if ($query->num_rows > 0) {
+        echo "Username already exists.";
+    } else {
+        echo "Username does not exist yet.";
+    }
+
+    // Check if passwords match
+    //TODO: check if password is not weak, should be same checks as done on client-side
+    if ($_POST["password"] != $_POST["passwordConfirm"]) {
+        die("Passwords do not match.");
+    }
+
+    // Check if TOS was accepted
+    if (!$_POST["TOS"]) {
+        die("TOS was not accepted.");
+    }
+
 
 } else {
     echo("error");
