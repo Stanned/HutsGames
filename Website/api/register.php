@@ -21,6 +21,9 @@ if ($conn) {
         echo "Username does not exist yet.";
     }
 
+    //TODO: check if email is valid
+    //TODO: implement email verification
+
     // Check if passwords match
     //TODO: check if password is not weak, should be same checks as done on client-side
     if ($_POST["password"] != $_POST["passwordConfirm"]) {

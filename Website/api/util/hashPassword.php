@@ -3,15 +3,12 @@
 class passwordHasher
 {
     // Function for generating without a salt
-    public function hashPassword(string $password): string
+    public function hashPassword(string $password): array
     {
         $salt = $this->generateRandomString();
         $saltedPass = $password . $salt;
-
-        return password_hash($saltedPass, PASSWORD_DEFAULT);
+        return array(password_hash($saltedPass, PASSWORD_DEFAULT), $salt);
     }
-
-
 
     private function generateRandomString(): string
     {
@@ -26,7 +23,7 @@ class passwordHasher
     }
 
     // Function for generating with a known salt
-    public function hashPasswordSalt(string $password, string $salt): string
+    public function hashPasswordWithSalt(string $password, string $salt): string
     {
         $saltedPass = $password . $salt;
         return password_hash($saltedPass, PASSWORD_DEFAULT);
