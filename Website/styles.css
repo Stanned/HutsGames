@@ -2,13 +2,19 @@
 html, body {
   font-family: "Coda Caption", sans-serif;
   background-color: #141414;
-  margin-left: 8px;
-  margin-right: 8px;
+
 }
 h1,
 p {
   margin-left: 20px;
   color: rgb(187, 187, 187);
+}
+
+#footerContainer {
+  border: 1px solid black;
+  padding: 50px;
+  color: white;
+  background-color: #222222;
 }
 
 #headerContainer {
@@ -57,9 +63,9 @@ img {vertical-align: middle;}
 /* Fading animation */
 .fade {
   -webkit-animation-name: fade;
-  -webkit-animation-duration: 4.7s;
+  -webkit-animation-duration: 4.8s;
   animation-name: fade;
-  animation-duration: 4.7s;
+  animation-duration: 4.8s;
 }
 
 @-webkit-keyframes fade {
@@ -79,7 +85,7 @@ img {vertical-align: middle;}
 
 .grid-container {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   grid-column-gap: 50px;
   background-color: #141414;
   padding: 200px;
