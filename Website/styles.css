@@ -1,13 +1,43 @@
 @import url("https://fonts.googleapis.com/css2?family=Coda+Caption:wght@800&display=swap");
-html, body {
-  font-family: "Coda Caption", sans-serif;
-  background-color: #141414;
 
+:root {
+  --background-primary: #fff;
+  --color-primary: #222222;
 }
-h1,
-p {
-  margin-left: 20px;
-  color: rgb(187, 187, 187);
+
+html[data-theme='dark'] {
+  --background-primary: #030303;
+  --color-primary: #ccc;
+}
+
+body, html {
+  transition: color 300ms, background-color 300ms;
+  background: var(--background-primary);
+  color: var(--color-primary);
+  font-family: "Coda Caption", sans-serif;
+}
+
+h1, h2, p {
+  color: var(--color-primary);
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+#headerContainer {
+  display: grid;
+  grid-template-columns: 80% 20%;
+  border: 1px solid black;
+  padding: 20px;
+  color: white;
+  background-color: #222222;
+}
+
+.button {
+  border: 2px solid #141414;
+  padding: 16px;
+  color: white;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 #footerContainer {

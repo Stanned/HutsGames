@@ -8,6 +8,19 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
         integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
+    <script>
+    const htmlEl = document.getElementsByTagName('html')[0];
+    const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
+
+    if (currentTheme) {
+        htmlEl.dataset.theme = currentTheme;
+    }
+
+    const toggleTheme = (theme) => {
+        htmlEl.dataset.theme = theme;
+        localStorage.setItem('theme', theme);
+    }
+    </script>
 </head>
 
 <body>
@@ -15,6 +28,8 @@
         <div id="headerContainer">
             <div class="headerItem"><img width="250" src="images/logo-big.png" alt="HutsGames Logo"></div>
             <div class="headerItem" id="loginButtonContainer" style="text-align: right;">
+                <a id="loginButton" class="button" onclick="toggleTheme('light');">Light</a>
+                <a id="loginButton" class="button" onclick="toggleTheme('dark');">Dark</a>
                 <a id="loginButton" class="button" href="#">Login</a>
                 <a id="loginButton" class="button" href="register/">Register</a>
             </div>
