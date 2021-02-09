@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Coda+Caption:wght@800&display=swap");
+
 :root {
   --background-primary: #fff;
   --color-primary: #222222;
@@ -13,13 +14,13 @@ body, html {
   transition: color 300ms, background-color 300ms;
   background: var(--background-primary);
   color: var(--color-primary);
+  font-family: "Coda Caption", sans-serif;
 }
 
 h1, h2, p {
   color: var(--color-primary);
   margin-left: 8px;
   margin-right: 8px;
-  font-family: "Coda Caption", sans-serif;
 }
 
 #headerContainer {
@@ -37,4 +38,109 @@ h1, h2, p {
   color: white;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+#footerContainer {
+  border: 1px solid black;
+  padding: 50px;
+  color: white;
+  background-color: #222222;
+}
+
+#headerContainer {
+  display: grid;
+  grid-template-columns: 85% 15%;
+  border: 1px solid black;
+  padding: 20px;
+  color: white;
+  background-color: #222222;
+}
+
+.button {
+  border: 2px solid #141414;
+  padding: 15px;
+  color: white;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+* {box-sizing: border-box;}
+.mySlides {display: none;}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 4.8s;
+  animation-name: fade;
+  animation-duration: 4.8s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-column-gap: 50px;
+  background-color: #141414;
+  padding: 200px;
+}
+
+.item1 {
+  background-color: rgba(235, 43, 43, 0.8);
+  color: rgb(187, 187, 187);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+
+.item2 {
+  background-color: #222222;
+  color: rgb(187, 187, 187);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+
+.item3 {
+  background-color: rgba(0, 125, 197, 0.8);
+  color: rgb(187, 187, 187);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
 }
