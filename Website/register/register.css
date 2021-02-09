@@ -98,7 +98,7 @@ select:-webkit-autofill:focus {
   font-size: 16px;
 }
 .AlreadyRegistered{
-  color: white;
+  color: var(--color-primary);
   font-size: 16px;
   margin-top: 15px;
 }
