@@ -34,10 +34,11 @@ input.registerforminput:focus {
   margin-bottom: 20px;
 }
 /*Opmaak van tekst naast checkbox*/
-#TermsAcceptBox{
+#TermsAcceptLine{
   margin-top: 17px;
-  color: white;
-  font-size: 18px;
+  color: rgb(168, 168, 168);
+  font-size: 14px;
+  margin-bottom: 15px;
 }
 /*Grootte van de checkbox*/
 input[type='checkbox'] {
@@ -56,7 +57,6 @@ input[type='checkbox'] {
 /*Register knop*/
 .registerButton{
   background-color: #FF0000;
-  margin-top: 10px;
   border-radius: 5px;
   border: none;
   font-weight: bold;
@@ -94,11 +94,14 @@ select:-webkit-autofill:focus {
   -webkit-text-fill-color: white;
   -webkit-box-shadow: 0 0 0px 1000px #141414 inset;
 }
+/*Opmaak voor caps lock warning functie*/
 #CapsLockWarning{
   color: red;
   font-weight: bold;
   font-size: 16px;
+  margin-bottom: 10px;
 }
+/*Opmaak voor de line die vraagt of je al geregistreerd bent*/
 .AlreadyRegistered{
   color: white;
   font-size: 16px;
