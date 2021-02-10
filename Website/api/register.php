@@ -19,6 +19,11 @@ if ($conn) {
         echo "Username already exists.";
     } else {
         echo "Username does not exist yet.";
+        if (!preg_match('[^A-Za-z0-9_]', $username)) {
+            echo "Username is valid";
+        } else {
+            echo "Username contains illegal characters";
+        }
     }
 
     //TODO: check if email is valid
@@ -29,9 +34,6 @@ if ($conn) {
     if ($_POST["password"] != $_POST["passwordConfirm"]) {
         die("Passwords do not match.");
     }
-
-
-
 
 } else {
     echo("error");
