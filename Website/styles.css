@@ -112,7 +112,7 @@ img {vertical-align: middle;}
 }
 
 .item1 {
-  background-color: rgba(235, 43, 43, 0.8);
+  background-color: #FF0000;
   color: rgb(187, 187, 187);
   text-align: center;
   padding: 20px 0;
@@ -128,7 +128,7 @@ img {vertical-align: middle;}
 }
 
 .item3 {
-  background-color: rgba(0, 125, 197, 0.8);
+  background-color: #485FFF;
   color: rgb(187, 187, 187);
   text-align: center;
   padding: 20px 0;
