@@ -8,18 +8,18 @@ $conn = $database->getDbConnection();
 
 if ($conn) {
     //Alle client-side checks worden nog een keer uitgevoerd op de server
-    //Check if username is valid
     //TODO: Check username for illegal characters / illegal length
     $username = $conn->real_escape_string($_POST['username']);
     $query = mysqli_query($conn, "SELECT * FROM users WHERE username='" . $username . "'");
     if (!$query) {
         die("Error: " . mysqli_error($conn));
     }
+
     if ($query->num_rows > 0) {
         echo "Username already exists.";
     } else {
         echo "Username does not exist yet.";
-        if (!preg_match('[^A-Za-z0-9_]', $username)) {
+        if (!preg_match('[^A-Za-z0-9_]', $_POST['username'])) {
             echo "Username is valid";
         } else {
             echo "Username contains illegal characters";
