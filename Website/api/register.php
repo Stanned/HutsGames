@@ -1,6 +1,5 @@
 <?php
 // TODO: make script send response in correct format for html page to read, not just plain text.
-// TODO: Put all errors into one error message and send that instead of one error at a time.
 include './util/database.php';
 
 $database = new Database();
@@ -30,7 +29,7 @@ if ($conn) {
         array_push($errors, "email_invalid");
     }
 
-// Check if passwords match
+    // Check if passwords match
     if ($_POST["password"] != $_POST["passwordConfirm"]) {
         array_push($errors, "passwords_different");
     }
@@ -46,7 +45,20 @@ if ($conn) {
         array_push($errors, "password_illegal");
     }
 
-    echo json_encode($errors);
+    // Check if errors were found
+    if (count($errors) == 0) {
+        $response = new stdClass();
+        $response->status = "ok";
+        echo json_encode($response);
+
+
+    } else {
+        $response = new stdClass();
+        $response->status = "errors";
+        $response->errors = $errors;
+        echo json_encode($response);
+
+    }
 } else {
     echo("error");
 }
