@@ -30,10 +30,7 @@ if ($conn) {
         die("Passwords do not match.");
     }
 
-    // Check if TOS was accepted
-    if (!$_POST["TOS"]) {
-        die("TOS was not accepted.");
-    }
+
 
 
 } else {
