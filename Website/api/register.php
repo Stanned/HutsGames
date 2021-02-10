@@ -10,21 +10,20 @@ if ($conn) {
 
     $errors = [];
 
-    //Alle client-side checks worden nog een keer uitgevoerd op de server
-    //TODO: Check username for illegal characters / illegal length
+    // Alle client-side checks worden nog een keer uitgevoerd op de server
+    if (!preg_match('/^\w{3,32}$/', $_POST["username"])) {
+        array_push($errors, "illegal_username");
+    }
+
     $username = $conn->real_escape_string($_POST['username']);
     $query = mysqli_query($conn, "SELECT * FROM users WHERE username='" . $username . "'");
     if (!$query) {
         die("Error: " . mysqli_error($conn));
     }
 
-    // TODO: check for valid length of username
+
     if ($query->num_rows > 0) {
         array_push($errors, "username_taken");
-    } else if (!preg_match('[^A-Za-z0-9_]', $_POST['username'])) {
-        echo "Username is valid";
-    } else {
-        array_push($errors, "illegal_username");
     }
 
 
@@ -41,7 +40,7 @@ if ($conn) {
         array_push($errors, "passwords_different");
     }
 
-    echo $errors;
+    echo json_encode($errors);
 } else {
     echo("error");
 }
