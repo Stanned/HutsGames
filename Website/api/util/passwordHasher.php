@@ -22,7 +22,7 @@ class passwordHasher
         return $randomString;
     }
 
-    // Function for generating with a known salt
+    // Function for generating hash with a known salt
     public function hashPasswordWithSalt(string $password, string $salt): string
     {
         $saltedPass = $password . $salt;
