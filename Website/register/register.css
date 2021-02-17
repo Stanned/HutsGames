@@ -70,6 +70,10 @@ input[type='checkbox'] {
   background-color: #485FFF;
   color: white;
 }
+/*Zorgt ervoor dat er geen lelijk randje om submit button heen komt*/
+.registerButton:focus{
+  outline-width: 0;
+}
 /*Geeft grijze kleur aan de placeholders in alle browsers*/
 ::placeholder {
   color: rgb(180, 180, 180);
