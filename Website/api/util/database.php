@@ -7,13 +7,16 @@ class Database{
     private string $database = "HutsGames-313537cd22";
     private string $password = "chx5p0qwvd";
 
-    public function getDbConnection(): mysqli
+    public function getDbConnection(): PDO
     {
-        $conn = new mysqli($this->host, $this->username, $this->password, $this->database, $this->port);
-
-        if ($conn->connect_error) {
-            echo("Error in connection: " . mysqli_connect_error());
+        $dsn = "mysql:host=$this->host;dbname=$this->database;port=$this->port";
+        try {
+            $conn = new PDO($dsn, $this->username, $this->password);
+        } catch (PDOException $e) {
+            throw $e;
         }
+
         return $conn;
+
     }
 }

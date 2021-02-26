@@ -1,5 +1,6 @@
 <?php
 
+
 // TODO: check if all $_POST values were received.
 include './util/database.php';
 include './util/emailer.php';
@@ -19,16 +20,34 @@ if ($conn) {
         array_push($errors, "username_illegal");
     }
 
-    $safeUsername = $conn->real_escape_string($_POST['username']);
-    $query = mysqli_query($conn, "SELECT * FROM users WHERE username='" . $safeUsername . "'");
-    if (!$query) {
-        die("Database Error.");
-    }
-    if ($query->num_rows > 0) {
+    // Check if username has been taken
+
+    $usernameSql = $conn->prepare("SELECT * FROM users WHERE username = ?");
+    $usernameSql->bindParam(1, $_POST["username"]);
+    $usernameSql->execute();
+
+
+    if ($usernameSql->rowCount() != 0) {
         array_push($errors, "username_taken");
     }
 
+
     // TODO: check if email is taken
+
+    if (!($stmt = $conn->prepare("SELECT * FROM `users` WHERE `email`=?"))) {
+        echo "Prepare failed: (" . $conn->errno . ") " . $conn->error;
+    }
+
+
+    $emailSql = $conn->prepare("SELECT * FROM `users` WHERE `email`=?");
+    $emailSql->bindParam(1, $_POST["email"]);
+    if (!$emailSql->execute()) {
+        echo "Database Error."; // TODO: Must be in proper format, not just plain text
+    }
+    if ($emailSql->rowCount() > 0) {
+        array_push($errors, "email_taken");
+    }
+
     // Check if email had valid format
     if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
         array_push($errors, "email_invalid");
@@ -51,6 +70,7 @@ if ($conn) {
         array_push($errors, "password_illegal");
     }
 
+
     // Check if errors were found
     if (count($errors) == 0) {
         // On no errors found
@@ -60,17 +80,18 @@ if ($conn) {
         $passHasher = new passwordHasher();
         $hashedPass = $passHasher->hashPassword($_POST["password"]);
 
-        $sql = $conn->prepare("INSERT INTO users (username, passwordHash, email, vkey) VALUES (?, ?, ?, ?)");
-        $sql->bind_param('ssss', $_POST["username"], $hashedPass, $_POST["email"], $emailVKey);
-        if (!$sql->execute()) {
+        $submitSql = $conn->prepare("INSERT INTO users (username, passwordHash, email, vkey) VALUES (?, ?, ?, ?)");
+        $submitSql->bindParam(1, $_POST["username"]);
+        $submitSql->bindParam(2, $hashedPass);
+        $submitSql->bindParam(3, $_POST["email"]);
+        $submitSql->bindParam(4, $emailVKey);
+        if (!$submitSql->execute()) {
             echo "Database Error."; // TODO: Must be in proper format, not just plain text
         } else {
             $response = new stdClass();
             $response->status = "ok";
             echo json_encode($response);
         }
-
-
 
     } else {
         $response = new stdClass();
