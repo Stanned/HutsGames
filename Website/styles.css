@@ -25,7 +25,7 @@ h1, h2, p {
 
 #headerContainer {
   display: grid;
-  grid-template-columns: 80% 20%;
+  grid-template-columns: 70% 30%;
   border: 1px solid black;
   padding: 20px;
   color: white;
