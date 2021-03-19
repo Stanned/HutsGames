@@ -1,7 +1,5 @@
 <?php
 
-
-// TODO: check if all $_POST values were received.
 include './util/database.php';
 include './util/emailer.php';
 include './util/passwordHasher.php';
@@ -32,17 +30,15 @@ if ($conn) {
     }
 
 
-    // TODO: check if email is taken
-
     if (!($stmt = $conn->prepare("SELECT * FROM `users` WHERE `email`=?"))) {
-        echo "Prepare failed: (" . $conn->errno . ") " . $conn->error;
+        echo "Prepare failed: (" . $conn->errorInfo() . ")";
     }
 
 
     $emailSql = $conn->prepare("SELECT * FROM `users` WHERE `email`=?");
     $emailSql->bindParam(1, $_POST["email"]);
     if (!$emailSql->execute()) {
-        echo "Database Error."; // TODO: Must be in proper format, not just plain text
+        array_push($errors, "database_error");
     }
     if ($emailSql->rowCount() > 0) {
         array_push($errors, "email_taken");
@@ -58,7 +54,6 @@ if ($conn) {
         array_push($errors, "passwords_different");
     }
 
-    // TODO: check if password contains uppercase and lowercase
     // Check if password contains a letter, number, special character and is between 6 and 128 characters long
     $password = $_POST["password"];
     $passRightSize = strlen($password) >= 6 && strlen($password) <= 128;
@@ -86,7 +81,7 @@ if ($conn) {
         $submitSql->bindParam(3, $_POST["email"]);
         $submitSql->bindParam(4, $emailVKey);
         if (!$submitSql->execute()) {
-            echo "Database Error."; // TODO: Must be in proper format, not just plain text
+            array_push($errors, "database_error");
         } else {
             $response = new stdClass();
             $response->status = "ok";
