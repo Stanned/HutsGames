@@ -7,7 +7,7 @@
   border-left: 0px;
   border-top: 0px;
   border-right: 0px;
-  background: #141414;
+  background: #222222;
   color: white;
   transition-duration: 0.7s;
 }
@@ -28,7 +28,7 @@ input.registerforminput:focus {
 }
 /*Sign up titel*/
 .titleRegister {
-  color: white;
+  color: var(--color-primary);
   text-align: center;
   font-weight: bold;
   margin-bottom: 20px;
@@ -107,7 +107,7 @@ select:-webkit-autofill:focus {
 }
 /*Opmaak voor de line die vraagt of je al geregistreerd bent*/
 .AlreadyRegistered{
-  color: white;
+  color: var(--color-primary);
   font-size: 16px;
   margin-top: 15px;
 }
