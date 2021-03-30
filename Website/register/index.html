@@ -44,65 +44,91 @@
     </header>
     <h1 class="titleRegister">Sign up</h1>
     <div id="registerBoxContainer">
-        <form action="" method="post">
-            <input class="registerforminput arrow-togglable" autocomplete="off" type="text" placeholder="Username" name="username" id="userInput" required><br>
-            <input class="registerforminput arrow-togglable emailBox" type="email" placeholder="Email address" name="email" id="emailInput" required><br>
-            <input class="registerforminput arrow-togglable passwordBox" autocomplete="off" type="password" placeholder="Password" name="password" id="passwordInput" required></br>
-            <input class="registerforminput arrow-togglable" autocomplete="off" type="password" placeholder="Confirm password" name="passwordConfirm" id="passwordConfirmInput" required></br>
+        <form action="" name="myForm" method="post" id="form" onsubmit="return validateName() && validateEmail() && validatePassword() && validatePasswordSame()">
+            <input class="registerforminput arrow-togglable" autocomplete="off" type="text" placeholder="Username" name="username" id="userInput" onkeyup="checkName()" required><br>
+            <input class="registerforminput arrow-togglable emailBox" type="email" placeholder="Email address" name="email" id="emailInput" onkeyup="checkEmail();" required><br>
+            <input class="registerforminput arrow-togglable passwordBox" autocomplete="off" type="password" placeholder="Password" name="password" id="passwordInput" onkeyup="checkPassword();" required></br>
+            <input class="registerforminput arrow-togglable" autocomplete="off" type="password" placeholder="Confirm password" name="passwordConfirm" id="passwordConfirmInput" onkeyup="checkPasswordsSame()" required></br>   
+            <span id="message"></span><br>
             <p id="TermsAcceptLine"> By signing up you agree to the <a href="../terms-of-service.html" target="blank_">Terms of Service</a></p>
-            <div id="CapsLockWarning" style="display: none;">Caps lock is on</div>
-            <input class="registerButton" type="submit" name="submitRegisterForm" value="Register" id="registerClick">
+            <input class="registerButton" type="submit" name="submitRegisterForm" value="Register" id="registerClick"  />
             <p class="AlreadyRegistered">Already have an account? <a href="../log-in">Log in</a></p>
         </form>
     </div>
     <script type="text/javascript">
-        document.querySelectorAll('input').forEach((input) => {
-            input.addEventListener('blur', function() {
-                this.classList.toggle('inputcompleted', this.value.length > 0);
-            });
-        });
 
-        if ( window.history.replaceState ) {
-            window.history.replaceState( null, null, window.location.href );
-        }
-
-
-    $(document).ready(
-    function () {
-        check_capslock_form($('#registerBoxContainer')); 
-    }
- );
-document.onkeydown = function (e) { 
-    e = e || event;
-    if (typeof (window.lastpress) === 'undefined') { window.lastpress = e.timeStamp; }
-    if (typeof (window.capsLockEnabled) !== 'undefined') {
-        if (e.keyCode == 20 && e.timeStamp > window.lastpress + 50) {
-            window.capsLockEnabled = !window.capsLockEnabled;
-            $('#CapsLockWarning').toggle();
-        }
-        window.lastpress = e.timeStamp;
-    }
-
-};
-function check_capslock(e) { 
-    var s = String.fromCharCode(e.keyCode);
-    if (s.toUpperCase() === s && s.toLowerCase() !== s && !e.shiftKey) {
-        window.capsLockEnabled = true;
-        $('#CapsLockWarning').show();
-    }
-    else {
-        window.capsLockEnabled = false;
-        $('#CapsLockWarning').hide();
+function validateName() {
+    return checkName();
+}
+function checkName() {
+    
+    var name = document.forms["myForm"]["userInput"].value;
+    var nameNum = name.replace(/[a-z]/, '');
+    
+    if (nameNum.length > 2 && nameNum.length < 33) {
+        document.getElementById("userInput").className = 'UsernameCorrect';
+        return true;
+    } 
+    else if (nameNum.length < 3 || nameNum.length > 32) {
+        document.getElementById("userInput").className = 'UsernameIncorrect';
+        return false;
     }
 }
-function check_capslock_form(where) {
-    if (!where) { where = $(document); }
-    where.find('input,select').each(function () {
-        if (this.type != "hidden") {
-            $(this).keypress(check_capslock);
-        }
-    });
+
+function validateEmail() {
+    return checkEmail();
 }
+function checkEmail(){
+    const email = document.getElementById('emailInput').value;
+    const pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/
+
+    if(email.match(pattern)){
+        document.getElementById("emailInput").className = 'EmailPasswordCorrect';
+        return true;
+    } else {
+        document.getElementById("emailInput").className = 'EmailPasswordIncorrect';
+        return false;
+    }
+}
+
+function validatePassword() {
+    return checkPassword();
+}
+function checkPassword(){
+    const password = document.getElementById('passwordInput').value;
+    const pattern = /(?=.*[a-zA-Z])(?=.*[^a-zA-Z\d])(?=.*?[#?!@$%^&*-\/\\]).{6,128}/
+
+    if(password.match(pattern)){
+        document.getElementById("passwordInput").className = 'EmailPasswordCorrect';
+        return true;
+    } else {
+        document.getElementById("passwordInput").className = 'EmailPasswordIncorrect';
+        return false;
+    }
+}
+
+function validatePasswordSame() {
+    return checkPasswordsSame();
+}
+function checkPasswordsSame() {
+        var password = document.getElementById("passwordInput").value;
+        var confirmPassword = document.getElementById("passwordConfirmInput").value;
+        const pattern = /(?=.*[a-zA-Z])(?=.*[^a-zA-Z\d])(?=.*?[#?!@$%^&*-\/\\]){6,128}/
+        if (password != confirmPassword){
+            document.getElementById('message').style.color = 'red';
+            document.getElementById('message').innerHTML = 'password do not match / not strong enough';
+            document.getElementById("passwordConfirmInput").className = 'PasswordConfirmIncorrect';
+            return false;
+        } else if (password.match(pattern)){
+            document.getElementById("passwordConfirmInput").className = 'PasswordConfirmCorrect';
+            document.getElementById('message').style.visibility = "hidden";
+            return true;
+        }
+    }
+
+if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
     </script>
 </body>
 </html>
