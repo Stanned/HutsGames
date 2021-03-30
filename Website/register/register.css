@@ -11,15 +11,10 @@
   color: white;
   transition-duration: 0.7s;
 }
-/*Wanneer er iets in een input staat, wordt de border groen*/
-.inputcompleted{
-  border-bottom: 4px solid rgb(8, 207, 1);
-  transition-duration: 0.7s;
-}
 /*Als je in een tekstvakje typt, laat dat niet zo'n lelijke border zien*/
 input.registerforminput:focus {
   outline-width: 0;
-  border-bottom: 4px solid orange;
+  /*border-bottom: 4px solid orange;*/
   transition-duration: 0.7s;
 }
 /*Alles in de div wordt gecentreerd*/
@@ -34,15 +29,16 @@ input.registerforminput:focus {
   margin-bottom: 20px;
 }
 /*Opmaak van tekst naast checkbox*/
-#TermsAcceptBox{
-  margin-top: 17px;
-  color: var(--color-primary);
-  font-size: 18px;
+#TermsAcceptLine{
+  color: rgb(168, 168, 168);
+  font-size: 14px;
 }
 /*Grootte van de checkbox*/
 input[type='checkbox'] {
   width: 15px;
   height: 15px;
+  width:15px;
+  height:15px;
 }
 /*Margin boven password en email address*/
 .passwordBox{
@@ -54,7 +50,6 @@ input[type='checkbox'] {
 /*Register knop*/
 .registerButton{
   background-color: #FF0000;
-  margin-top: 10px;
   border-radius: 5px;
   border: none;
   font-weight: bold;
@@ -67,6 +62,10 @@ input[type='checkbox'] {
 .registerButton:hover{
   background-color: #485FFF;
   color: white;
+}
+/*Zorgt ervoor dat er geen lelijk randje om submit button heen komt*/
+.registerButton:focus{
+  outline-width: 0;
 }
 /*Geeft grijze kleur aan de placeholders in alle browsers*/
 ::placeholder {
@@ -92,14 +91,97 @@ select:-webkit-autofill:focus {
   -webkit-text-fill-color: white;
   -webkit-box-shadow: 0 0 0px 1000px #141414 inset;
 }
-#CapsLockWarning{
-  color: red;
-  font-weight: bold;
-  font-size: 16px;
-}
+/*Opmaak voor de line die vraagt of je al geregistreerd bent*/
 .AlreadyRegistered{
   color: var(--color-primary);
   font-size: 16px;
   margin-top: 15px;
 }
+
+#passwordConfirmInput{
+  margin-bottom: 10px;
+}
+
+.UsernameIncorrect {
+  border:4px solid red;
+  margin-top: 10px;
+  font-size: 18px;
+  width: 300px;
+  border-left: 0px;
+  border-top: 0px;
+  border-right: 0px;
+  background: #141414;
+  color: white;
+  transition-duration: 0.7s;
+  outline-width: 0;
+}
+.UsernameCorrect {
+  margin-top: 10px;
+  font-size: 18px;
+  width: 300px;
+  border-bottom: 4px solid rgb(8, 207, 1);
+  border-left: 0px;
+  border-top: 0px;
+  border-right: 0px;
+  background: #141414;
+  color: white;
+  transition-duration: 0.7s;
+  outline-width: 0;
+}
+
+.PasswordConfirmIncorrect {
+  border:4px solid red;
+  margin-top: 10px;
+  font-size: 18px;
+  width: 300px;
+  border-left: 0px;
+  border-top: 0px;
+  border-right: 0px;
+  background: #141414;
+  color: white;
+  transition-duration: 0.7s;
+  outline-width: 0;
+}
+.PasswordConfirmCorrect {
+  margin-top: 10px;
+  font-size: 18px;
+  width: 300px;
+  border-bottom: 4px solid rgb(8, 207, 1);
+  border-left: 0px;
+  border-top: 0px;
+  border-right: 0px;
+  background: #141414;
+  color: white;
+  transition-duration: 0.7s;
+  outline-width: 0;
+}
+
+.EmailPasswordIncorrect {
+  border:4px solid red;
+  margin-top: 25px;
+  font-size: 18px;
+  width: 300px;
+  border-left: 0px;
+  border-top: 0px;
+  border-right: 0px;
+  background: #141414;
+  color: white;
+  transition-duration: 0.7s;
+  outline-width: 0;
+}
+.EmailPasswordCorrect {
+  margin-top: 25px;
+  font-size: 18px;
+  width: 300px;
+  border-bottom: 4px solid rgb(8, 207, 1);
+  border-left: 0px;
+  border-top: 0px;
+  border-right: 0px;
+  background: #141414;
+  color: white;
+  transition-duration: 0.7s;
+  outline-width: 0;
+}
+
+
 
