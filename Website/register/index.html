@@ -76,7 +76,7 @@ function validatePassword() {
 }
 function checkPassword(){
     const password = document.getElementById('passwordInput').value;
-    const pattern = /(?=.*[a-zA-Z])(?=.*[^a-zA-Z\d])(?=.*?[#?!@$%^&*-\/\\]){6,128}/
+    const pattern = /(?=.*[a-zA-Z])(?=.*[^a-zA-Z\d])(?=.*?[#?!@$%^&*-\/\\]).{6,128}/
 
     if(password.match(pattern)){
         document.getElementById("passwordInput").className = 'EmailPasswordCorrect';
