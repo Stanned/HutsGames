@@ -9,7 +9,13 @@ $database = new Database();
 $conn = $database->getDbConnection();
 $randomizer = new randomString();
 
+if (!$_POST) {
+    return;
+}
+
 if ($conn) {
+
+
 
     $errors = [];
 
