@@ -237,10 +237,10 @@ if ($conn) {
         }
 
     } else {
-        $response = new stdClass();
-        $response->status = "errors";
-        $response->errors = $errors;
-        echo json_encode($response);
+        foreach ($errors as $err) {
+            echo "<h3>".$err."</h3>";
+        }
+
 
     }
 } else {
