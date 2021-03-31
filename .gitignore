@@ -1,1 +1,5 @@
-.idea
+
+.idea/vcs.xml
+.idea/php.xml
+.idea/modules.xml
+.idea/HutsGames.iml

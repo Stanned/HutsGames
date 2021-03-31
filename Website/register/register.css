@@ -1,24 +1,187 @@
+/*Opmaak voor alle inputs*/
 .registerforminput {
-    margin-top: 7px;
-    border-radius: 5px;
-    font-size: 18px;
-  }
-  #registerBoxContainer {
-    text-align: center;
-  }
-  .titleRegister {
-    color: white;
-    text-align: center;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-  #TermsAcceptBox{
-    margin-top: 17px;
-    color: white;
-  }
-  .passwordBox{
-    margin-top: 15px;
-  }
-  .emailBox{
-    margin-top: 15px;
-  }
+  margin-top: 10px;
+  font-size: 18px;
+  width: 300px;
+  border-bottom: 4px solid #485FFF;
+  border-left: 0px;
+  border-top: 0px;
+  border-right: 0px;
+  background: #222222;
+  color: white;
+  transition-duration: 0.7s;
+}
+/*Als je in een tekstvakje typt, laat dat niet zo'n lelijke border zien*/
+input.registerforminput:focus {
+  outline-width: 0;
+  /*border-bottom: 4px solid orange;*/
+  transition-duration: 0.7s;
+}
+/*Alles in de div wordt gecentreerd*/
+#registerBoxContainer {
+  text-align: center;
+}
+/*Sign up titel*/
+.titleRegister {
+  color: var(--color-primary);
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+/*Opmaak van tekst naast checkbox*/
+#TermsAcceptLine{
+  color: rgb(168, 168, 168);
+  font-size: 14px;
+}
+/*Grootte van de checkbox*/
+input[type='checkbox'] {
+  width: 15px;
+  height: 15px;
+  width:15px;
+  height:15px;
+}
+/*Margin boven password en email address*/
+.passwordBox{
+  margin-top: 25px;
+}
+.emailBox{
+  margin-top: 25px;
+}
+/*Register knop*/
+.registerButton{
+  background-color: #FF0000;
+  border-radius: 5px;
+  border: none;
+  font-weight: bold;
+  font-size: 19px;
+  width: 300px;
+  color: white;
+  transition-duration: 2s;
+}
+/*Wanneer je met je muis over de register knop beweegt, verandert hij van kleur*/
+.registerButton:hover{
+  background-color: #485FFF;
+  color: white;
+}
+/*Zorgt ervoor dat er geen lelijk randje om submit button heen komt*/
+.registerButton:focus{
+  outline-width: 0;
+}
+/*Geeft grijze kleur aan de placeholders in alle browsers*/
+::placeholder {
+  color: rgb(180, 180, 180);
+  opacity: 1; 
+}
+:-ms-input-placeholder { 
+  color: rgb(180, 180, 180);
+}
+::-ms-input-placeholder { 
+  color: rgb(180, 180, 180);
+}
+/*Zorgt ervoor dat als je auto-fill gebruikt de achtergrond van de input niet zo'n lelijke kleur krijgt.*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: white;
+  -webkit-box-shadow: 0 0 0px 1000px #141414 inset;
+}
+/*Opmaak voor de line die vraagt of je al geregistreerd bent*/
+.AlreadyRegistered{
+  color: var(--color-primary);
+  font-size: 16px;
+  margin-top: 15px;
+}
+
+#passwordConfirmInput{
+  margin-bottom: 10px;
+}
+
+.UsernameIncorrect {
+  border:4px solid red;
+  margin-top: 10px;
+  font-size: 18px;
+  width: 300px;
+  border-left: 0px;
+  border-top: 0px;
+  border-right: 0px;
+  background: #141414;
+  color: white;
+  transition-duration: 0.7s;
+  outline-width: 0;
+}
+.UsernameCorrect {
+  margin-top: 10px;
+  font-size: 18px;
+  width: 300px;
+  border-bottom: 4px solid rgb(8, 207, 1);
+  border-left: 0px;
+  border-top: 0px;
+  border-right: 0px;
+  background: #141414;
+  color: white;
+  transition-duration: 0.7s;
+  outline-width: 0;
+}
+
+.PasswordConfirmIncorrect {
+  border:4px solid red;
+  margin-top: 10px;
+  font-size: 18px;
+  width: 300px;
+  border-left: 0px;
+  border-top: 0px;
+  border-right: 0px;
+  background: #141414;
+  color: white;
+  transition-duration: 0.7s;
+  outline-width: 0;
+}
+.PasswordConfirmCorrect {
+  margin-top: 10px;
+  font-size: 18px;
+  width: 300px;
+  border-bottom: 4px solid rgb(8, 207, 1);
+  border-left: 0px;
+  border-top: 0px;
+  border-right: 0px;
+  background: #141414;
+  color: white;
+  transition-duration: 0.7s;
+  outline-width: 0;
+}
+
+.EmailPasswordIncorrect {
+  border:4px solid red;
+  margin-top: 25px;
+  font-size: 18px;
+  width: 300px;
+  border-left: 0px;
+  border-top: 0px;
+  border-right: 0px;
+  background: #141414;
+  color: white;
+  transition-duration: 0.7s;
+  outline-width: 0;
+}
+.EmailPasswordCorrect {
+  margin-top: 25px;
+  font-size: 18px;
+  width: 300px;
+  border-bottom: 4px solid rgb(8, 207, 1);
+  border-left: 0px;
+  border-top: 0px;
+  border-right: 0px;
+  background: #141414;
+  color: white;
+  transition-duration: 0.7s;
+  outline-width: 0;
+}
+
+
+
