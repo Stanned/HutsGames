@@ -22,11 +22,6 @@
         localStorage.setItem('theme', theme);
     }
     </script>
-    <script>
-        if ( window.history.replaceState ) {
-            window.history.replaceState( null, null, window.location.href );
-        }
-    </script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 </head>
 

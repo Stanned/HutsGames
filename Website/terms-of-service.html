@@ -7,17 +7,32 @@
     <title>Terms Of Service - HutsGames</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
         integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-    <link rel="stylesheet" href="./universal-theme.css">
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        const htmlEl = document.getElementsByTagName('html')[0];
+        const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
+    
+        if (currentTheme) {
+            htmlEl.dataset.theme = currentTheme;
+        }
+    
+        const toggleTheme = (theme) => {
+            htmlEl.dataset.theme = theme;
+            localStorage.setItem('theme', theme);
+        }
+        </script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 </head>
 
 <body>
     <header>
         <div id="headerContainer">
-            <div class="headerItem"><a href="./index.html"><img width="250" src="./images/logo-big.png" alt="HutsGames Logo"></a></div>
+            <div class="headerItem"><a href="index.html"><img width="250" src="./images/logo-big.png" alt="HutsGames Logo"></a></div>
             <div class="headerItem" id="loginButtonContainer" style="text-align: right;">
+                <a id="loginButton" class="button" onclick="toggleTheme('light');">Light</a>
+                <a id="loginButton" class="button" onclick="toggleTheme('dark');">Dark</a>
                 <a id="loginButton" class="button" href="#">Login</a>
-                <a id="loginButton" class="button" href="register/">Register</a>
+                <a id="loginButton" class="button" href="">Register</a>
             </div>
         </div>
     </header>
@@ -98,13 +113,13 @@
         <p>Company respects the intellectual property of others and asks that users of our Site do the same.  In connection with our Site, we have adopted and implemented a policy respecting copyright law that provides for the removal of any infringing materials and for the termination of users of our online Site who are repeated infringers of intellectual property rights, including copyrights.  If you believe that one of our users is, through the use of our Site, unlawfully infringing the copyright(s) in a work, and wish to have the allegedly infringing material removed, the following information in the form of a written notification (pursuant to 17 U.S.C. § 512(c)) must be provided to our designated Copyright Agent:</p>
         
         <ul>
-            <li>your physical or electronic signature;</li>
-            <li>identification of the copyrighted work(s) that you claim to have been infringed;</li>
-            <li>identification of the material on our services that you claim is infringing and that you request us to remove;</li>
-            <li>sufficient information to permit us to locate such material;</li>
-            <li>your address, telephone number, and e-mail address;</li>
-            <li>a statement that you have a good faith belief that use of the objectionable material is not authorized by the copyright owner, its agent, or under the law; and</li>
-            <li>a statement that the information in the notification is accurate, and under penalty of perjury, that you are either the owner of the copyright that has allegedly been infringed or that you are authorized to act on behalf of the copyright owner.</li>
+            <li><p>your physical or electronic signature;</p></li>
+            <li><p>identification of the copyrighted work(s) that you claim to have been infringed;</p></li>
+            <li><p>identification of the material on our services that you claim is infringing and that you request us to remove;</p></li>
+            <li><p>sufficient information to permit us to locate such material;</p></li>
+            <li><p>your address, telephone number, and e-mail address;</p></li>
+            <li><p>a statement that you have a good faith belief that use of the objectionable material is not authorized by the copyright owner, its agent, or under the law; and</p></li>
+            <li><p>a statement that the information in the notification is accurate, and under penalty of perjury, that you are either the owner of the copyright that has allegedly been infringed or that you are authorized to act on behalf of the copyright owner.</p></li>
         </ul>
         
         <p>Please note that, pursuant to 17 U.S.C. § 512(f), any misrepresentation of material fact in a written notification automatically subjects the complaining party to liability for any damages, costs and attorney’s fees incurred by us in connection with the written notification and allegation of copyright infringement.</p>
