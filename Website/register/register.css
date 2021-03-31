@@ -7,8 +7,8 @@
   border-left: 0px;
   border-top: 0px;
   border-right: 0px;
-  background: #222222;
-  color: white;
+  background: transparent;
+  color: var(--color-primary);
   transition-duration: 0.7s;
 }
 /*Als je in een tekstvakje typt, laat dat niet zo'n lelijke border zien*/
@@ -30,7 +30,7 @@ input.registerforminput:focus {
 }
 /*Opmaak van tekst naast checkbox*/
 #TermsAcceptLine{
-  color: rgb(168, 168, 168);
+  color: var(--color-primary);
   font-size: 14px;
 }
 /*Grootte van de checkbox*/
@@ -69,27 +69,14 @@ input[type='checkbox'] {
 }
 /*Geeft grijze kleur aan de placeholders in alle browsers*/
 ::placeholder {
-  color: rgb(180, 180, 180);
+  color: var(--color-primary);
   opacity: 1; 
 }
 :-ms-input-placeholder { 
-  color: rgb(180, 180, 180);
+  color: var(--color-primary);
 }
 ::-ms-input-placeholder { 
-  color: rgb(180, 180, 180);
-}
-/*Zorgt ervoor dat als je auto-fill gebruikt de achtergrond van de input niet zo'n lelijke kleur krijgt.*/
-input:-webkit-autofill,
-input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus,
-textarea:-webkit-autofill,
-textarea:-webkit-autofill:hover,
-textarea:-webkit-autofill:focus,
-select:-webkit-autofill,
-select:-webkit-autofill:hover,
-select:-webkit-autofill:focus {
-  -webkit-text-fill-color: white;
-  -webkit-box-shadow: 0 0 0px 1000px #141414 inset;
+  color: var(--color-primary);
 }
 /*Opmaak voor de line die vraagt of je al geregistreerd bent*/
 .AlreadyRegistered{
@@ -110,8 +97,8 @@ select:-webkit-autofill:focus {
   border-left: 0px;
   border-top: 0px;
   border-right: 0px;
-  background: #141414;
-  color: white;
+  background: transparent;
+  color: var(--color-primary);
   transition-duration: 0.7s;
   outline-width: 0;
 }
@@ -123,8 +110,8 @@ select:-webkit-autofill:focus {
   border-left: 0px;
   border-top: 0px;
   border-right: 0px;
-  background: #141414;
-  color: white;
+  background: transparent;
+  color: var(--color-primary);
   transition-duration: 0.7s;
   outline-width: 0;
 }
@@ -137,8 +124,8 @@ select:-webkit-autofill:focus {
   border-left: 0px;
   border-top: 0px;
   border-right: 0px;
-  background: #141414;
-  color: white;
+  background: transparent;
+  color: var(--color-primary);
   transition-duration: 0.7s;
   outline-width: 0;
 }
@@ -150,8 +137,8 @@ select:-webkit-autofill:focus {
   border-left: 0px;
   border-top: 0px;
   border-right: 0px;
-  background: #141414;
-  color: white;
+  background: transparent;
+  color: var(--color-primary);
   transition-duration: 0.7s;
   outline-width: 0;
 }
@@ -164,8 +151,8 @@ select:-webkit-autofill:focus {
   border-left: 0px;
   border-top: 0px;
   border-right: 0px;
-  background: #141414;
-  color: white;
+  background: transparent;
+  color: var(--color-primary);
   transition-duration: 0.7s;
   outline-width: 0;
 }
@@ -177,11 +164,22 @@ select:-webkit-autofill:focus {
   border-left: 0px;
   border-top: 0px;
   border-right: 0px;
-  background: #141414;
-  color: white;
+  background: transparent;
+  color: var(--color-primary);
   transition-duration: 0.7s;
   outline-width: 0;
 }
-
-
-
+/*Zorgt ervoor dat als je auto-fill gebruikt de achtergrond van de input niet zo'n lelijke kleur krijgt.*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--color-primary);
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
