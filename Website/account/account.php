@@ -1,8 +1,13 @@
 <?php
-session_start();
-if( !isset( $_SESSION['username']) ){
-echo "You are not authorized to view this page. Go back <a href= '/'>home</a>";
-exit();
+include "database.php";
+
+if(!isset($_SESSION['uname'])){
+    header('Location: ../index.html');
+}
+
+if(isset($_POST['but_logout'])){
+    session_destroy();
+    header('Location: ../index.html');
 }
 ?>
 <!DOCTYPE html>
@@ -55,6 +60,6 @@ exit();
 <p>Email: <?php echo $_SESSION['email'] ?></p>
 <p>Change Password</p>
 </br>
-<p>Click to <a class="nav-link" href="logout.php">Logout</a></p>
+<p>Click to <input type="submit" value="Logout" name="but_logout"></p>
 </body>
 </html>
