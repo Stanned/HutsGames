@@ -1,26 +1,23 @@
 <?php
 
-include "database.php";
-
+include "../api/util/database.php";
+$database = new Database();
+$conn = $database->getDbConnection();
 if(isset($_POST['but_submit'])){
 
-    $uname = mysqli_real_escape_string($con,$_POST['uname']);
-    $password = mysqli_real_escape_string($con,$_POST['psw']);
+    $uname = $_POST['uname'];
+    $password = $_POST['psw'];
 
-    if ($uname != "" && $password != ""){
+    $password = $_POST["password"];
+    $passRightSize = strlen($password) >= 6 && strlen($password) <= 128;
+    $passContainsLetter = preg_match('/[a-zA-Z]/', $password);
+    $passContainsNumber = preg_match('/[^a-zA-Z\d]/', $password);
+    $passContainsSpecialChar = preg_match('/[^a-zA-Z\d]/', $password);
+    $isPassValid = $passRightSize && $passContainsLetter && $passContainsNumber && $passContainsSpecialChar;
 
-        $sql_query = "select count(*) as cntUser from users where username='".$uname."' and password='".$password."'";
-        $result = mysqli_query($con,$sql_query);
-        $row = mysqli_fetch_array($result);
 
-        $count = $row['cntUser'];
-
-        if($count > 0){
-            $_SESSION['uname'] = $uname;
-            header('Location: index.html');
-        }else{
-            echo "Invalid username and password";
-        }
+    if ($uname != "" && $isPassValid){
+        $checkSql = $conn
 
     }
 
