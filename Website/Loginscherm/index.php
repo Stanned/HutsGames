@@ -18,13 +18,18 @@ if (isset($_POST['but_submit'])) {
     if ($uname != "" && $isPassValid) {
         $checkSql = $conn->prepare("SELECT * FROM users WHERE username = ?");
         $checkSql->bindParam(1, $password);
-        $result = $conn->query($checkSql);
+        $checkSql->execute();
+        $result = $conn->query("SELECT * FROM users WHERE `username`='" . $uname . "';");
         if ($result->rowCount() != 0) {
-            $row = $result->nextRowset();
-            $dbPass = $row["password"];
+//            $result->nextRowset();
+            $row = $result->fetch();
+            $dbPass = $row["passwordhash"];
+
             if (password_verify($password, $dbPass)) {
                 session_start();
                 $_SESSION["user"] = $uname;
+                session_commit();
+                echo "Logged in!";
             } else {
                 echo "Wrong username and password combination.";
             }
@@ -65,7 +70,7 @@ if (isset($_POST['but_submit'])) {
         class="close" title="Close Modal">&times;</span>
 
     <!-- wat er in de model staat -->
-    <form class="modal-content animate" method="POST" action="login_action.php">
+    <form class="modal-content animate" method="POST">
         <div class="container">
             <label for="uname"><b>Username</b></label>
             <input type="text" placeholder="Enter Username" id="uname" name="uname" required>
