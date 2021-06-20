@@ -210,9 +210,7 @@ if ($conn) {
         // On no errors found
         // Generate email verification key
         $emailVKey = $randomizer->getRandomString(32);
-
-        $passHasher = new passwordHasher();
-        $hashedPass = $passHasher->hashPassword($_POST["password"]);
+        $hashedPass = password_hash($password);
 
         $submitSql = $conn->prepare("INSERT INTO users (username, passwordHash, email, vkey) VALUES (?, ?, ?, ?)");
         $submitSql->bindParam(1, $_POST["username"]);
