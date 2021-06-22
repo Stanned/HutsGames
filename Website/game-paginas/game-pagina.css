@@ -11,13 +11,13 @@
 }
   
 .game { grid-area: game; 
-    background-color: #00ffdd;
+    background-color: #ffd000;
     padding:30px;
 
 }
   
 .suggest { grid-area: suggest; 
-    background-color: #b3ff01;
+    background-color: #d501ff;
 
 }
   
@@ -27,13 +27,12 @@
 }
   
 .description { grid-area: description;
-    background-color: #1900ff;
+    background-color: #485fff;
 
 }
   
 .reviews { grid-area: reviews;
-    background-color: #ffd000;
+    background-color: #00ff40;
 
 }
-  
   
