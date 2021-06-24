@@ -34,7 +34,7 @@
             <div class="headerItem" id="loginButtonContainer" style="text-align: right;">
                 <a id="loginButton" class="button" onclick="toggleTheme('light');">Light</a>
                 <a id="loginButton" class="button" onclick="toggleTheme('dark');">Dark</a>
-                <a id="loginButton" class="button" href="#">Login</a>
+                <a id="loginButton" class="button" href="/login">Login</a>
                 <a id="loginButton" class="button" href="">Register</a>
             </div>
         </div>
@@ -225,9 +225,6 @@ if ($conn) {
             }
             echo $submitSql->errorCode();
         } else {
-            $response = new stdClass();
-            $response->status = "ok";
-            echo json_encode($response);
             echo "<h3>Registered!</h3>";
         }
 
