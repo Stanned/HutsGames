@@ -213,7 +213,7 @@ if ($conn) {
         $passHasher = new passwordHasher();
         $hashedPass = $passHasher->hashPassword($_POST["password"]);
 
-        $submitSql = $conn->prepare("INSERT INTO `users` (username, passwordHash, email, vkey) VALUES (?, ?, ?, ?)");
+        $submitSql = $conn->prepare("INSERT INTO `users` (username, passwordHash, email, vkey, verified) VALUES (?, ?, ?, ?, 0)");
         $submitSql->bindParam(1, $_POST["username"]);
         $submitSql->bindParam(2, $hashedPass);
         $submitSql->bindParam(3, $_POST["email"]);
@@ -223,6 +223,7 @@ if ($conn) {
             foreach ($errors as $err) {
                 echo "<h3>".$err."</h3>";
             }
+            echo $submitSql->errorCode();
         } else {
             $response = new stdClass();
             $response->status = "ok";
