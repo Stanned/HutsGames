@@ -224,6 +224,7 @@ if ($conn) {
             $response = new stdClass();
             $response->status = "ok";
             echo json_encode($response);
+            echo "<h3>Registered!</h3>";
         }
 
     } else {
