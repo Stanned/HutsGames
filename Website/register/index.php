@@ -212,17 +212,19 @@ if ($conn) {
         $emailVKey = $randomizer->getRandomString(32);
         $hashedPass = password_hash($password);
 
-        $submitSql = $conn->prepare("INSERT INTO users (username, passwordHash, email, vkey) VALUES (?, ?, ?, ?)");
+        $submitSql = $conn->prepare("INSERT INTO `users` (username, passwordHash, email, vkey, verified) VALUES (?, ?, ?, ?, 0)");
         $submitSql->bindParam(1, $_POST["username"]);
         $submitSql->bindParam(2, $hashedPass);
         $submitSql->bindParam(3, $_POST["email"]);
         $submitSql->bindParam(4, $emailVKey);
         if (!$submitSql->execute()) {
             array_push($errors, "database_error");
+            foreach ($errors as $err) {
+                echo "<h3>".$err."</h3>";
+            }
+            echo $submitSql->errorCode();
         } else {
-            $response = new stdClass();
-            $response->status = "ok";
-            echo json_encode($response);
+            echo "<h3>Registered!</h3>";
         }
 
     } else {
