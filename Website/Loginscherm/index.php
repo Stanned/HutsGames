@@ -5,7 +5,7 @@ $database = new Database();
 $conn = $database->getDbConnection();
 if (isset($_POST['but_submit'])) {
 
-    $uname = $_POST['uname'];
+    $uname = $conn->quote($_POST['uname']);
     $password = $_POST['psw'];
 
     $passRightSize = strlen($password) >= 6 && strlen($password) <= 128;
@@ -19,6 +19,7 @@ if (isset($_POST['but_submit'])) {
         $checkSql = $conn->prepare("SELECT * FROM users WHERE username = ?");
         $checkSql->bindParam(1, $password);
         $checkSql->execute();
+        // Dit is veilig omdat hierboven gebruik is gemaakt van $conn->quote()
         $result = $conn->query("SELECT * FROM users WHERE `username`='" . $uname . "';");
         if ($result->rowCount() != 0) {
 //            $result->nextRowset();

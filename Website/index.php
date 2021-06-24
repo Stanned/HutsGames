@@ -100,6 +100,25 @@
       </section>
     <footer id="footerContainer" style="text-align: center;">
       <p style="color:rgb(187, 187, 187);">Deze website wordt mede mogelijk gemaakt door de Huts</p>
+
+        <?php
+
+        include '../api/util/database.php';
+        $database = new Database();
+        $conn = $database->getDbConnection();
+
+        $last5commentsSql = $conn->prepare("SELECT * FROM comments ORDER BY id DESC LIMIT 1;");
+        $result = $last5commentsSql->execute();
+        $row = $result->fetch();
+        $content = $row["content"];
+        $username = $row["username"];
+        // TODO: display comment
+        // TODO: add Form to submit comment
+
+
+
+
+        ?>
     </footer>
 
     <script>
