@@ -1,11 +1,11 @@
 <?php
 class Database{
 
-    private string $host = "mysql.stackcp.com";
+    private string $host = "localhost";
     private string $port = "53704";
-    private string $username = "HutsGames-313537cd22";
-    private string $database = "HutsGames-313537cd22";
-    private string $password = "chx5p0qwvd";
+    private string $username = "hutsgames";
+    private string $database = "hutsgames";
+    private string $password = "superhuts123";
 
     public function getDbConnection(): PDO
     {
