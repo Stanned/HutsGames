@@ -34,8 +34,9 @@
             <div class="headerItem" id="loginButtonContainer" style="text-align: right;">
                 <a id="loginButton" class="button" onclick="toggleTheme('light');">Light</a>
                 <a id="loginButton" class="button" onclick="toggleTheme('dark');">Dark</a>
-                <a id="loginButton" class="button" href="/login">Login</a>
-                <a id="loginButton" class="button" href="">Register</a>
+                <a id="loginButton" class="button" href="../Loginscherm/">Login</a>              
+                <a id="loginButton" class="button" href="../register/">Register</a>
+                <a id="loginButton" class="button"  href="../account/">Account</a>
             </div>
         </div>
     </header>
@@ -209,9 +210,7 @@ if ($conn) {
         // On no errors found
         // Generate email verification key
         $emailVKey = $randomizer->getRandomString(32);
-
-        $passHasher = new passwordHasher();
-        $hashedPass = $passHasher->hashPassword($_POST["password"]);
+        $hashedPass = password_hash($password);
 
         $submitSql = $conn->prepare("INSERT INTO `users` (username, passwordHash, email, vkey, verified) VALUES (?, ?, ?, ?, 0)");
         $submitSql->bindParam(1, $_POST["username"]);
