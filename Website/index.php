@@ -114,8 +114,9 @@
         $username = $row["username"];
         // TODO: display comment
         // TODO: add Form to submit comment
-
-
+        echo "<h1>Latest Comment:</h1>";
+        echo "<h2>".$username."</h2>";
+        echo "<h3>".$content."</h3>";
 
 
         ?>
