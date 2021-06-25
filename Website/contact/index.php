@@ -10,8 +10,6 @@ if(!empty($_POST["submitContactForm"])) {
     $senderEmail=$_POST["senderEmail"];
     $subject=$_POST["subject"];
     $message=$_POST["message"];
-    //Op deze manier wordt de body van de mail HTML
-    $headers2 .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
     
     //Laat zien bij beide emails waar hij vandaan komt. PErsoneel van HutsGames ziet dus naam bij afzender en customer@sender.com. De klant ziet HutsGames staan met noreply@hutsgames.com. Dit is een verzonnen emailadres.
     $headers1 .= "From: $sender <customer@sender.com>\r\n";
@@ -19,7 +17,7 @@ if(!empty($_POST["submitContactForm"])) {
 
     //Er worden twee verschillende emails opgesteld.
     $mailBody1="Contact Form Message\n\nName: $sender\nE-mail: $senderEmail\n\n$message";
-    $mailBody2="Here is your message sent to us:</br></br><i>$message</i></br></br>Do not reply to this automated message, we will contact you soon!</br></br>Sincerely,</br>HutsGames";
+    $mailBody2="Here is your message sent to us:\n\n$message\n\nDo not reply to this automated message, we will contact you soon!\n\nSincerely,\nHutsGames";
 
     mail($website, $subject, $mailBody1, $headers1);
     mail($customer, $subject, $mailBody2, $headers2);

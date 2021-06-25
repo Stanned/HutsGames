@@ -169,6 +169,7 @@ if (isset($_POST['but_submit'])) {
       </section>
     <footer id="footerContainer" style="text-align: center;">
       <p style="color:rgb(187, 187, 187);">Deze website wordt mede mogelijk gemaakt door de Huts</p>
+      <a href="./contact" style="text-center">Contact</a>
     </footer>
 
     <script>

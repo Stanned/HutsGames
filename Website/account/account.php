@@ -1,13 +1,13 @@
 <?php
-include "database.php";
+include "./api/util/database.php";
 
-if(!isset($_SESSION['uname'])){
-    header('Location: ../index.html');
+if(!isset($_SESSION['user'])){
+    header('Location: ../index.php');
 }
 
 if(isset($_POST['but_logout'])){
     session_destroy();
-    header('Location: ../index.html');
+    header('Location: ../index.php');
 }
 ?>
 <!DOCTYPE html>
@@ -55,8 +55,8 @@ if(isset($_POST['but_logout'])){
 </li>
 </ul>
 </nav>
-<h1>Welcome to the Account Page, <?php echo $_SESSION['username'] ?></h1>
-<p>UserName: <?php echo $_SESSION['username'] ?></p>
+<h1>Welcome to the Account Page, <?php echo $_SESSION['user'] ?></h1>
+<p>UserName: <?php echo $_SESSION['user'] ?></p>
 <p>Email: <?php echo $_SESSION['email'] ?></p>
 <p>Change Password</p>
 </br>
