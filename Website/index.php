@@ -114,9 +114,22 @@
         $username = $row["username"];
         // TODO: display comment
         // TODO: add Form to submit comment
-        echo "<h1>Latest Comment:</h1>";
-        echo "<h2>".$username."</h2>";
+        echo "<h3>Latest Comment:</h3>";
+        echo "<h3>".$username.":</h3>";
         echo "<h3>".$content."</h3>";
+
+        if ($_SESSION["user"]) {
+            $user = $_SESSION["user"];
+            if (isset($_POST["msg"])) {
+                $msg = quote($_POST["msg"]);
+                $insertCommentSql = $conn->prepare("INSERT INTO comments (username, content) VALUES (?,?);");
+                $insertCommentSql->bindParam(1, $username);
+                $insertCommentSql->bindParam(2, $msg);
+                $insertCommentSql->execute();
+                echo "Comment posted!";
+            }
+        }
+
 
 
         ?>
