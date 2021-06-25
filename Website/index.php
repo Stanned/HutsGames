@@ -121,7 +121,7 @@
         if (isset($_SESSION["user"])) {
             $user = $_SESSION["user"];
             if (isset($_POST["msg"])) {
-                $msg = quote($_POST["msg"]);
+                $msg = $_POST["msg"];
                 $insertCommentSql = $conn->prepare("INSERT INTO comments (username, content) VALUES (?,?);");
                 $insertCommentSql->bindParam(1, $username);
                 $insertCommentSql->bindParam(2, $msg);
