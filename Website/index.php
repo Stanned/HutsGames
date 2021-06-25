@@ -169,6 +169,55 @@ if (isset($_POST['but_submit'])) {
       </section>
     <footer id="footerContainer" style="text-align: center;">
       <p style="color:rgb(187, 187, 187);">Deze website wordt mede mogelijk gemaakt door de Huts</p>
+
+        <?php
+
+        include 'api/util/database.php';
+        $database = new Database();
+        $conn = $database->getDbConnection();
+
+        $last5commentsSql = $conn->prepare("SELECT * FROM comments ORDER BY id DESC LIMIT 1;");
+        $result = $last5commentsSql->execute();
+        $row = $last5commentsSql->fetch();
+        $content = $row["content"];
+        $username = $row["username"];
+        // TODO: display comment
+        // TODO: add Form to submit comment
+        echo "<h3>Latest Comment:</h3>";
+        echo "<h3>".$username.":</h3>";
+        echo "<h3>".$content."</h3>";
+
+        if (isset($_SESSION["user"])) {
+            $user = $_SESSION["user"];
+            if (isset($_POST["msg"])) {
+                $msg = $_POST["msg"];
+                $insertCommentSql = $conn->prepare("INSERT INTO comments (username, content) VALUES (?,?);");
+                $insertCommentSql->bindParam(1, $username);
+                $insertCommentSql->bindParam(2, $msg);
+                $insertCommentSql->execute();
+                echo "Comment posted!";
+            }
+        }
+
+//          function setComments() {
+//            if(isset($_POST['commentSubmit'])) {
+//              $uid = $_POST['uid'];
+//              $date = $_POST ['date'];
+//              $message = $_POST['message'];
+//
+//              $sql = "INSERT INTO comments (uid, date, message) VALUES ('$uid', '$date', '$message')";
+//              $result = $conn->query($sql);
+//            }
+//          }
+
+        ?>
+
+        <h1>Submit your own comment for everyone to see!</h1>
+        <h4>(You need to be logged in)</h4>
+        <form>
+            <input type="text" name="msg" placeholder="Type your comment here!">
+            <input type="submit">
+        </form>
       <a href="./contact" style="text-center">Contact</a>
     </footer>
 
