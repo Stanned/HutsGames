@@ -103,13 +103,13 @@
 
         <?php
 
-        include '/api/util/database.php';
+        include 'api/util/database.php';
         $database = new Database();
         $conn = $database->getDbConnection();
 
         $last5commentsSql = $conn->prepare("SELECT * FROM comments ORDER BY id DESC LIMIT 1;");
         $result = $last5commentsSql->execute();
-        $row = $result->fetch();
+        $row = $last5commentsSql->fetch();
         $content = $row["content"];
         $username = $row["username"];
         // TODO: display comment
