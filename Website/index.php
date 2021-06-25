@@ -103,7 +103,7 @@
 
         <?php
 
-        include '../api/util/database.php';
+        include '/api/util/database.php';
         $database = new Database();
         $conn = $database->getDbConnection();
 
