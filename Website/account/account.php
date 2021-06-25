@@ -1,5 +1,5 @@
 <?php
-include "./api/util/database.php";
+include "../api/util/database.php";
 
 if(!isset($_SESSION['user'])){
     header('Location: ../index.php');
@@ -57,8 +57,6 @@ if(isset($_POST['but_logout'])){
 </nav>
 <h1>Welcome to the Account Page, <?php echo $_SESSION['user'] ?></h1>
 <p>UserName: <?php echo $_SESSION['user'] ?></p>
-<p>Email: <?php echo $_SESSION['email'] ?></p>
-<p>Change Password</p>
 </br>
 <p>Click to <input type="submit" value="Logout" name="but_logout"></p>
 </body>
