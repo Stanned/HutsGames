@@ -172,8 +172,8 @@ if (isset($_POST['but_submit'])) {
 
         <?php
 
-        include 'api/util/database.php';
-        $database = new Database();
+//        include 'api/util/database.php';
+//        $database = new Database();
         $conn = $database->getDbConnection();
 
         $last5commentsSql = $conn->prepare("SELECT * FROM comments ORDER BY id DESC LIMIT 1;");
