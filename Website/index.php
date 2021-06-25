@@ -141,27 +141,27 @@ if (isset($_POST['but_submit'])) {
                 <h1 style="color:rgb(187, 187, 187);">Among us</h1>
                 <br>
                 <ul style= "text-align: left; margin-left: 15px">
-                    <li><a style="color: rgb(187, 187, 187);" href="game-paginas/pagina1.html">Impostor</a></li>
-                    <li><a style="color: rgb(187, 187, 187);" href="game-paginas/pagina2.html">Asher vs Zombies</a></li>
-                    <li><a style="color: rgb(187, 187, 187);" href="game-paginas/pagina3.html">Catac.io</a></li>
+                    <li><a style="color: rgb(187, 187, 187);" href="game-paginas/pagina1.php">Impostor</a></li>
+                    <li><a style="color: rgb(187, 187, 187);" href="game-paginas/pagina2.php">Asher vs Zombies</a></li>
+                    <li><a style="color: rgb(187, 187, 187);" href="game-paginas/pagina3.php">Catac.io</a></li>
                 </ul>
             </div>
             <div class="item2">
                 <h1 style="color:rgb(187,187,187);">Adventure</h1>
                 <br>
                 <ul style= "text-align: left; margin-left: 15px">
-                    <li><a style="color: rgb(187, 187, 187);" href="game-paginas/pagina4.html">Stupid Chicken</a></li>
-                    <li><a style="color: rgb(187, 187, 187);" href="game-paginas/pagina5.html">Backflip Adventure</a></li>
-                    <li><a style="color: rgb(187, 187, 187);" href="game-paginas/pagina6.html">Russian Taz Driving</a></li>
+                    <li><a style="color: rgb(187, 187, 187);" href="game-paginas/pagina4.php">Stupid Chicken</a></li>
+                    <li><a style="color: rgb(187, 187, 187);" href="game-paginas/pagina5.php">Backflip Adventure</a></li>
+                    <li><a style="color: rgb(187, 187, 187);" href="game-paginas/pagina6.php">Russian Taz Driving</a></li>
                 </ul>
             </div>
             <div class="item3">
                 <h1 style="color:rgb(187, 187, 187);">Shooter</h1>
                 <br>
                 <ul style= "text-align: left; margin-left: 15px">
-                    <li><a style="color: rgb(187, 187, 187);" href="game-paginas/pagina7.html">The Island Of Momo</a></li>
-                    <li><a style="color: rgb(187, 187, 187);" href="game-paginas/pagina8.html">Pixel Warrior</a></li>
-                    <li><a style="color: rgb(187, 187, 187);" href="game-paginas/pagina9.html">Kick The Buddy</a></li>
+                    <li><a style="color: rgb(187, 187, 187);" href="game-paginas/pagina7.php">The Island Of Momo</a></li>
+                    <li><a style="color: rgb(187, 187, 187);" href="game-paginas/pagina8.php">Pixel Warrior</a></li>
+                    <li><a style="color: rgb(187, 187, 187);" href="game-paginas/pagina9.php">Kick The Buddy</a></li>
                 </ul>
             </div>  
 
