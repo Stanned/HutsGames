@@ -118,7 +118,7 @@
         echo "<h3>".$username.":</h3>";
         echo "<h3>".$content."</h3>";
 
-        if ($_SESSION["user"]) {
+        if (isset($_SESSION["user"])) {
             $user = $_SESSION["user"];
             if (isset($_POST["msg"])) {
                 $msg = quote($_POST["msg"]);
