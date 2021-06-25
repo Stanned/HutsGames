@@ -130,18 +130,25 @@
             }
         }
 
-          function setComments() {
-            if(isset($_POST['commentSubmit'])) {
-              $uid = $_POST['uid'];
-              $date = $_POST ['date'];
-              $message = $_POST['message'];
-
-              $sql = "INSERT INTO comments (uid, date, message) VALUES ('$uid', '$date', '$message')";
-              $result = $conn->query($sql);
-            }
-          }
+//          function setComments() {
+//            if(isset($_POST['commentSubmit'])) {
+//              $uid = $_POST['uid'];
+//              $date = $_POST ['date'];
+//              $message = $_POST['message'];
+//
+//              $sql = "INSERT INTO comments (uid, date, message) VALUES ('$uid', '$date', '$message')";
+//              $result = $conn->query($sql);
+//            }
+//          }
 
         ?>
+
+        <h1>Submit your own comment for everyone to see!</h1>
+        <h4>(You need to be logged in)</h4>
+        <form>
+            <input type="text" name="msg" placeholder="Type your comment here!">
+            <input type="submit">
+        </form>
     </footer>
 
     <script>
